@@ -41,12 +41,6 @@
     </tr>
     <tr>
     <tr>
-    <td>Tipo de usuario</td>
-    <td><select name="" id="" style="width: 100%;">
-    <option value="">Administrador</option>
-    <option value="">Restringido</option>
-    <option value="">Empleado</option></select></td>
-    <tr>
     <td align="center"><input type="submit" value="confirmar" style="width: 80%; background-color: green ;"></td>
     <td align="center"><input type="button" value="cancelar" style="width: 60%; background-color: red;"></td>
     </tr>
