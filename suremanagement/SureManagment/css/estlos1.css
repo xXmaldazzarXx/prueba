@@ -1,0 +1,7 @@
+.aviso {
+	background: yellow;
+	display: none;
+	z-index: 999;
+	position: absolute;
+	padding: 30px;
+}

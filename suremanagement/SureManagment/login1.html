@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<!-- http://localhost/SureManagment/login.html-->
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Suremanagement</title>
+		
+		<!-- Favicons -->
+        <link href="img/about/LogoSM.png" rel="icon">
+        <link href="img/about/LogoSM.png" rel="apple-touch-icon">
+		<link rel="stylesheet" href="css/stylelogin.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+		<script>
+            function validate(form)
+            {
+                falla  = validanombres(form.nom.value)
+                falla += validaapellidos(form.apre.value)
+                falla += validauser(form.user.value)
+                falla += validapassword(form.pass.value)
+                falla += validaemail(form.email.value)
+                if(falla == "") return true
+                    else{
+                        alert(falla); return false
+                    }
+            }
+            function validanombres(field)
+            {
+                return(field == "") ? "El nombre debe ser ingresado. \n" : ""
+            }
+            
+            function validaapellidos(field)
+            {
+                return(field == "") ? "El apellido debe ser ingresado. \n" : ""    
+            }
+            
+            function validauser(field)
+            {
+                if(field == "") return "El nombre de usuario debe ser ingresado. \n"
+                    else if (field.lenght < 5)
+                        return "El nombre de usuario debe tener al menos cinco caracteres. \n"
+                    else if (/[^a-zA-Z0-9_-]/.test(field))
+                        return "Solo se permite poner caracteres de a-z,A-Z,0-9,- en los nombres de usuario."
+                    return ""
+            }
+            
+            function validapassword(field)
+            {
+                if(field == "") return "Debe ingresar la contraseña. \n"
+                    else if (field.length < 6)
+                        return "La contraseña debe tener por lo menos seis caracteres. \n"
+                    else if (!/[a-z]/.test(field) ||
+                             !/[A-Z]/.test(field) ||
+                             !/[0-9]/.test(field))
+                        return "La contraseña debe tener caracteres entre la a-z,A-Z y del 0-9. \n"
+                    return ""
+            }
+            
+            function validaemail(field)
+            {
+                if(field == "") return "Debe ingresar su correo electrónico. \n"
+                    else if(!((field.indexOf(".") > 0) &&
+                             (field.indexOf("@") > 0)) ||
+                           /[^a-zA-Z0-9.@_-]/.test(field))
+                        return "Su correo es inválido. \n"
+                    return ""
+            }
+        </script>
+	</head>
+	<body>
+		<!--form area start-->
+		<div class="form">
+			<!--login form start-->
+			<form class="login-form" action="dashboard.html" method="post">
+				<i class="fas fa-user-circle"></i>
+				<input class="user-input" type="text" name="" placeholder="Usuario" required>
+				<input class="user-input" type="password" name="" placeholder="Contraseña" required>
+				<div class="options-01">
+					<label class="remember-me"><input type="checkbox" name="">Recordar contraseña</label>
+					<a href="#">¿Olvidaste la contraseña?</a>
+				</div>
+				<a href="dashboard.html"><input class="btn" type="submit" name="" value="INGRESAR"></a>
+				<div class="options-02">
+					<p>Su usuario ha sido ingresado correctamente</p>
+				</div>
+			</form>
+			<!--login form end-->
+			<!--signup form start-->
+			<form class="signup-form" action="php/adduser.php" onsubmit="validate(this)" method="post">
+				<i class="fas fa-user-plus"></i>
+				<input class="user-input" type="text" name="nom" placeholder="Nombres" required>
+				<input class="user-input" type="text" name="ape" placeholder="Apellidos" required>
+				<input class="user-input" type="text" name="user" placeholder="Nombre de usuario" required>
+				<input class="user-input" type="password" name="pass" placeholder="Contraseña" required>
+				<input class="user-input" type="email" name="email" placeholder="Correo electrónico" required>
+				<a href="#"><input class="btn" type="submit" name="" value="REGISTRARSE"></a>
+				<div class="options-02">
+					<p>¿Ya estas registrado? <a href="#">Iniciar Sesión</a></p>
+				</div>
+			</form>
+			<!--signup form end-->
+		</div>
+		<!--form area end-->
+
+		<script type="text/javascript">
+		$('.options-02 a').click(function(){
+			$('form').animate({
+				height: "toggle", opacity: "toggle"
+			}, "slow");
+		});
+		</script>
+	</body>
+</html>
