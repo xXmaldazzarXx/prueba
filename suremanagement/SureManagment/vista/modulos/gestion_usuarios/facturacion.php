@@ -18,8 +18,7 @@
       
     <!--datables CSS básico-->
     <link rel="stylesheet" type="text/css" href="../../../css/datatables.min.css"/>
-    <!--datables estilo bootstrap 4 CSS-->  
-    <link rel="stylesheet"  type="text/css" href="../../../css/dataTables.bootstrap4.min.css">     
+    <!--datables estilo bootstrap 4 CSS-->    
      <header>
 <!--         <h3 class="text-center text-light">Tutorial</h3>-->
          <h4 class="text-center text-light" style="background-color:#961b21;"><span style="background-color:rgba(0,0,0,0);" class="badge badge-danger">Gestion de Usuarios</span></h4> 
@@ -61,7 +60,7 @@
                                             <th>'.$reg['usuario'].'</th>
                                             <th>'.$reg['contraseña'].'</th>
                                             <th>'.$reg['email'].'</th>
-                                            <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['id_usuario'].'"><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['id_usuario'].'()"></form><form id="fusel'.$reg['id_usuario'].'""><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
+                                            <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['id_usuario'].'"><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['id_usuario'].'()"></form><form id="fusel'.$reg['id_usuario'].'"><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
                                             </tr>';
                                             echo '<script>
                                             function editus'.$reg['id_usuario'].'(){
@@ -158,12 +157,13 @@
                                           </div>
 
 
-                                          <div id="avsdel'.$reg['id_usuario'].'" style="display:none;position:fixed;z-index:50;padding:50px;background:white;border:solid 0.5px black;border-radius:20px;margin-left:20%;margin-right:20%;width:60%;margin-top:-100%;">
+                                          <div id="avsdel'.$reg['id_usuario'].'" class="okok" style="">
                                           <hr style="height:2px;background-color:#961b21;">
                                           <h5> Seguro que desea eliminar el usuario: '.$reg['usuario'].' con id: '.$reg['id_usuario'].'?<h5>
                                           <form id="fusdel'.$reg['id_usuario'].'"><input type="hidden" name="deluss" value="'.$reg['id_usuario'].'"><input type="submit" value="confirmar" style=" width:30%;margin-left:15% ;background-color:#42b7f6;border:0.5px solid black;border-radius:5px;" ><input type="button" value="cancelar" id="canceldel'.$reg['id_usuario'].'" style="margin-left:10%;margin-right:15% ;background-color:#961b21;border:0.5px solid black;border-radius:5px;color:white;width:30%"></form>
                                           <hr style="height:2px;background-color:#961b21";>
                                           </div>
+
 
                                           <script type="text/javascript">
                                           $(document).ready(function(){
@@ -355,5 +355,20 @@
       });
     })(document);
     </script>
+    <style>
+        .okok{
+          display:none;
+          position:fixed;
+          z-index:1000;
+          padding:50px;
+          background:white;
+          border:solid 0.5px black;
+          border-radius:20px;
+          margin-left:20%;
+          margin-right:20%;
+          width:60%;
+          margin-top: -600px;
+        }
+    </style>
   </body>
 </html>
