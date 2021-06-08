@@ -55,6 +55,44 @@
                                     }else{
                                         $consulta = mysqli_query($conn, "SELECT * FROM usuarios");
                                         while($reg = mysqli_fetch_array($consulta)){
+                                          /***** Creacion de carpetas *****/
+                                           $carpeta = 'documentos/'.$reg['id_usuario'].'';
+                                           if(!file_exists($carpeta)){
+                                             mkdir($carpeta,0777,true);
+                                           }else{}
+                                           /***** FIN Creacion de carpetas *****/
+
+
+                                           /***** Creacion archivo de inicio *****/
+                                           $documento = $carpeta.'/inicio.html';
+                                           if(!is_file(''.$documento.'')){
+                                           echo 'xd';
+                                           $narch = fopen($documento,"w");
+
+
+                                           /****** Documento para el CRUD de cada uno de los propietarios ******/
+                                           $txt = '<!DOCTYPE html>
+                                           <html lang="en">
+                                           <head>
+                                               <meta charset="UTF-8">
+                                               <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                               <title>Document</title>
+                                           </head>
+                                           <body>
+                                           <header>
+                                           <div style="width:100%;background-color:#edb724;"height:150px;></div>
+                                           </header>
+                                                   Prueba del contenido de la persona con id :'.$reg['id_usuario'].'
+                                           </body>
+                                           </html>';
+                                           fwrite($narch,$txt);
+                                           }
+                                           /****** FIN Documento para el CRUD de cada uno de los propietarios ******/
+
+
+                                            /***** FIN Creacion archivo de inicio *****/
+
                                             echo '<tr>
                                             <th>'.$reg['id_usuario'].'</th>
                                             <th>'.$reg['nombres'].'</th>
