@@ -144,23 +144,23 @@
                                           <hr style="width:100%; background-color: #961b21; height:2px;">
                                           <tr>
                                           <td>Direccion</td>
-                                          <td><input type="text" value="'.$reg['direccion'].'" name="nombres"><input type="hidden" value="'.$reg['id_inmueble'].'" name="ppp"></td>
+                                          <td><input type="text" value="'.$reg['direccion'].'" name="direccion"><input type="hidden" value="'.$reg['id_inmueble'].'" name="ppp"></td>
                                           </tr>
                                           <tr>
                                           <td>Complemento</td>
-                                          <td><input type="text" value="'.$reg['complemento'].'" name="apellidos"></td>
+                                          <td><input type="text" value="'.$reg['complemento'].'" name="complemento"></td>
                                           </tr>
                                           <tr>
                                           <td>Valor</td>
-                                          <td><input type="text" value="'.$reg['valor'].'" name="telefono"></td>
+                                          <td><input type="text" value="'.$reg['valor'].'" name="valor"></td>
                                           </tr>
                                           <tr>
                                           <td>Fecha de pago</td>
-                                          <td><input type="date" id="datemin'.$reg['id_inmueble'].'" value="'.$reg['fecha_pago'].'" name="correo" min=""></td>
+                                          <td><input type="date" id="datemin'.$reg['id_inmueble'].'" value="'.$reg['fecha_pago'].'" name="fecha" min=""></td>
                                           </tr>
                                           <tr>
                                           <td>Propietario</td>
-                                          <td><select name="chapro" id="chapro'.$reg['id_inmueble'].'"><option selected value="'.$reg['id_inmueble'].'">'.$reg['nombres'].' '.$reg['apellidos'].'</option></select></td>
+                                          <td><select name="propietario" id="chapro'.$reg['id_inmueble'].'"></select></td>
                                           </tr>
                                           <tr>
                                           <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color:#42b7f6 ;"></form></td>
@@ -192,19 +192,18 @@
                                           if( mes < 10 ){
                                             mes = "0"+mes+""
                                           }
-                                          document.getElementById("datemin'.$reg['id_inmueble'].'").setAttribute("min", year+`-`+mes+`-`+dia); 
+                                          document.getElementById("datemin'.$reg['id_inmueble'].'").setAttribute("min", year+`-`+mes+`-`+dia);
 
                                           $(document).ready(function(){
 
                                             jQuery.ajax({
                                               url: "opcpro.php",
                                               success:function(data){
-                                              $("#chapro'.$reg['id_inmueble'].'").html(data+"<option>aaa</option>");
+                                              $("#chapro'.$reg['id_inmueble'].'").html("<option selected>'.$reg['nombres'].' '.$reg['apellidos'].'</option>"+data);
                                               },
                                               error:function(){}
                                             });
 
-                                            document.getElementById("chapro'.$reg['id_inmueble'].'").innerHTML = `<option selected>'.$reg['nombres'].' '.$reg['apellidos'].'</option>`
 
                                             $("#osccc'.$reg['id_inmueble'].'").click(function(){
                                               location.reload();
@@ -303,23 +302,23 @@
                                                 <hr style="width:100%; background-color: #961b21; height:2px;">
                                                 <tr>
                                                 <td>Direccion</td>
-                                                <td><input type="text" name="nombres"></td>
+                                                <td><input type="text" name="direccion"></td>
                                                 </tr>
                                                 <tr>
                                                 <td>Complemento</td>
-                                                <td><input type="text" name="apellidos"></td>
+                                                <td><input type="text" name="complemento"></td>
                                                 </tr>
                                                 <tr>
                                                 <td>valor</td>
-                                                <td><input type="text" name="telefono"></td>
+                                                <td><input type="text" name="valor"></td>
                                                 </tr>
                                                 <tr>
                                                 <td>Fecha de pago</td>
-                                                <td><input type="date" name="fecha"></td>
+                                                <td><input type="date" id="datemini" name="fecha"></td>
                                                 </tr>
                                                 <tr>
                                                 <td>Propietario</td>
-                                                <td><select id="opcpro"></select>
+                                                <td><select name="propietario" id="opcpro"></select>
                                                 </tr>
                                                 <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color: #42b7f6;"></form></td>
                                                 <td align="center"><form><input type="submit" value="cancelar" style="color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_inmueble'].'()"></form></td>
@@ -327,7 +326,15 @@
                                                 </table>
                                                 <p id="infonn" style="text-align:center"></p>
                                                 <hr style="width:100%; background-color: #961b21; height:2px;">
-                                                </div>`
+                                                </div>`                                            
+       var hola = new Date(Date.now())
+        var dia = hola.getDate()
+        var mes = hola.getMonth() + 1;
+        var year = hola.getFullYear()
+        if( mes < 10 ){
+        mes = "0"+mes+""
+        }
+        document.getElementById("datemini").setAttribute("min", year+`-`+mes+`-`+dia);
                                                 document.getElementById("newuser").style.display="block"
                                                 document.getElementById("avisonew").style.display="block"
                                                 document.getElementById("transp").style.display="block"
