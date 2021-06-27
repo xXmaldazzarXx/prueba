@@ -3,13 +3,12 @@
         if ($conn -> connect_error){
             echo "Error en la conexion";
         }else{
-            $ed= mysqli_query($conn,"UPDATE usuarios 
+            $ed= mysqli_query($conn,"UPDATE propietarios
             SET nombres='$_POST[nombres]',
             apellidos='$_POST[apellidos]',
-            usuario='$_POST[user]',
-            contraseña='$_POST[pass]',
-            email='$_POST[correo]'
-            WHERE id_usuario = $_POST[ppp]");
+            telefono='$_POST[telefono]',
+            correo='$_POST[correo]'
+            WHERE id_propietario = $_POST[ppp]");
             echo 'Se ha editado correctamente';
         }
 ?>

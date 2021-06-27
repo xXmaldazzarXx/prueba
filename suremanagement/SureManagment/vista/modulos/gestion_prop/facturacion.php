@@ -6,7 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="#" />  
     <title>Facturación</title>
-  
+    <style>
+        .okok{
+          display:none;
+          position:fixed;
+          z-index:1000;
+          padding:50px;
+          background:white;
+          border:solid 0.5px black;
+          border-radius:20px;
+          margin-left:20%;
+          margin-right:20%;
+          width:60%;
+          margin-top: 0;
+        }
+    </style>
   </head>
     
   <body id="bodyp">
@@ -36,15 +50,15 @@
                           <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal" style="position:absolute;left:90%;top:-40px;">Nuevo</button>    
                     </div> 
                     <br>
-                        <table id="tablaPersonas" class="table table-striped table-bordered table-condensed order-table " style="width:100%">
+                        <table id="tablaPersonas" class="table table-striped table-bordered table-condensed order-table" style="width:100%">
                             <thead class="text-center">
                                 <tr>
                                     <th>No.</th>
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
-                                    <th>Usuario</th>
-                                    <th>Contraseña</th>
-                                    <th>Email</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
+                                    <th>Archivos</th>
                                     <th colspan="2">Acciones</th>
                                 </tr>
                             </thead>
@@ -53,33 +67,33 @@
                                     if ($conn -> connect_error){
                                         echo "Error en la conexion";
                                     }else{
-                                        $consulta = mysqli_query($conn, "SELECT * FROM usuarios");
+                                        $consulta = mysqli_query($conn, "SELECT * FROM propietarios");
                                         while($reg = mysqli_fetch_array($consulta)){
                                             echo '<tr>
-                                            <th>'.$reg['id_usuario'].'</th>
+                                            <th>'.$reg['id_propietario'].'</th>
                                             <th>'.$reg['nombres'].'</th>
                                             <th>'.$reg['apellidos'].'</th>
-                                            <th>'.$reg['usuario'].'</th>
-                                            <th>'.$reg['contraseña'].'</th>
-                                            <th>'.$reg['email'].'</th>
-                                            <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['id_usuario'].'"><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['id_usuario'].'()"></form><form id="fusel"><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" onclick="delus'.$reg['id_usuario'].'" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
+                                            <th>'.$reg['telefono'].'</th>
+                                            <th>'.$reg['correo'].'</th>
+                                            <th><label for=""><div style="cursor:pointer;text-align:center;">🗂<div></label></th>
+                                            <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['id_propietario'].'"><input type="hidden" value="'.$reg['id_propietario'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['id_propietario'].'()"></form><form id="fusel'.$reg['id_propietario'].'"><input type="hidden" value="'.$reg['id_propietario'].'"><input type="submit" onclick="delus'.$reg['id_propietario'].'" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
                                             </tr>';
                                             echo '<script>
-                                            function editus'.$reg['id_usuario'].'(){
-                                              document.getElementById("avisoeditar'.$reg['id_usuario'].'").style.display="block"
-                                              document.getElementById("osccc'.$reg['id_usuario'].'").style.display="flex"
-                                              document.getElementById("osccc'.$reg['id_usuario'].'").style.position="fixed"
+                                            function editus'.$reg['id_propietario'].'(){
+                                              document.getElementById("avisoeditar'.$reg['id_propietario'].'").style.display="block"
+                                              document.getElementById("osccc'.$reg['id_propietario'].'").style.display="flex"
+                                              document.getElementById("osccc'.$reg['id_propietario'].'").style.position="fixed"
                                             }
-                                            function cedus'.$reg['id_usuario'].'(){
-                                              document.getElementById("avisoeditar'.$reg['id_usuario'].'").style.display="none"
-                                              document.getElementById("osccc'.$reg['id_usuario'].'").style.display="none"
+                                            function cedus'.$reg['id_propietario'].'(){
+                                              document.getElementById("avisoeditar'.$reg['id_propietario'].'").style.display="none"
+                                              document.getElementById("osccc'.$reg['id_propietario'].'").style.display="none"
                                             }
                                             $(document).ready(function(){
-                                              document.getElementById("fused'.$reg['id_usuario'].'").addEventListener("submit", e=>{     
+                                              document.getElementById("fused'.$reg['id_propietario'].'").addEventListener("submit", e=>{     
                                               e.preventDefault()
                                               jQuery.ajax({
                                                           url: "valdel.php",
-                                                          data: $("#fused'.$reg['id_usuario'].'").serialize(),
+                                                          data: $("#fused'.$reg['id_propietario'].'").serialize(),
                                                           type: "POST",
                                                           success:function(data){
                                                           $("#ad").html(data);
@@ -97,9 +111,9 @@
                                     <th>No.</th>
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
-                                    <th>Usuario</th>
-                                    <th>Contraseña</th>
-                                    <th>Email</th>
+                                    <th>Telefono</th>
+                                    <th>Correo</th>
+                                    <th>Archivos</th>
                                     <th colspan="3">Acciones</th>
                                 </tr>
                             </tfoot>         
@@ -119,66 +133,93 @@
                                     if ($conn -> connect_error){
                                         echo "Error en la conexion";
                                     }else{
-                                        $consulta = mysqli_query($conn, "SELECT * FROM usuarios");
+                                        $consulta = mysqli_query($conn, "SELECT * FROM propietarios");
                                         while($reg = mysqli_fetch_array($consulta)){
-                                          echo '<div id="osccc'.$reg['id_usuario'].'" onclick="cedus'.$reg['id_usuario'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisoeditar'.$reg['id_usuario'].'" style="width:30%; background-color: #961b21; padding: 20px; color:white; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
-                                          <form method="post" id="formedus'.$reg['id_usuario'].'">
+                                          echo '<div id="osccc'.$reg['id_propietario'].'" onclick="cedus'.$reg['id_propietario'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisoeditar'.$reg['id_propietario'].'" style="width:30%; background-color: #ffffff; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
+                                          <form method="post" id="formedus'.$reg['id_propietario'].'">
                                           <table align="center" class="tablaedit">
                                           <tr>
-                                          <td colspan="2" align="center"> Editar Usuario</td>
+                                          <td colspan="2" align="center"> Editar Propietario</td>
                                           </tr>
-                                          <hr style="width:100%; background-color: black;">
+                                          <hr style="width:100%; background-color: #961b21; height:2px;">
                                           <tr>
                                           <td>Nombres</td>
-                                          <td><input type="text" value="'.$reg['nombres'].'" name="nombres"><input type="hidden" value="'.$reg['id_usuario'].'" name="ppp"></td>
+                                          <td><input type="text" value="'.$reg['nombres'].'" name="nombres"><input type="hidden" value="'.$reg['id_propietario'].'" name="ppp"></td>
                                           </tr>
                                           <tr>
                                           <td>Apellidos</td>
                                           <td><input type="text" value="'.$reg['apellidos'].'" name="apellidos"></td>
                                           </tr>
                                           <tr>
-                                          <td>Nombre de usuario</td>
-                                          <td><input type="text" value="'.$reg['usuario'].'" name="user"></td>
-                                          </tr>
-                                          <tr>
-                                          <td>Contraseña</td>
-                                          <td><input type="password" value="'.$reg['contraseña'].'" name="pass"></td>
+                                          <td>Telefono</td>
+                                          <td><input type="text" value="'.$reg['telefono'].'" name="telefono"></td>
                                           </tr>
                                           <tr>
                                           <td>Email</td>
-                                          <td><input type="text" value="'.$reg['email'].'" name="correo"></td>
+                                          <td><input type="email" value="'.$reg['correo'].'" name="correo"></td>
                                           </tr>
                                           <tr>
+                                          <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color:#42b7f6 ;"></form></td>
+                                          <td align="center"><form><input type="submit" value="cancelar" style=" color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_propietario'].'()"></form></td>
+                                          </tr>
                                           <tr>
-                                          <td>Tipo de usuario</td>
-                                          <td><select name="" id="" style="width: 100%;">
-                                          <option value="">Administrador</option>
-                                          <option value="">Restringido</option>
-                                          <option value="">Empleado</option></select></td>
-                                          <tr>
-                                          <td align="center"><input type="submit" value="confirmar" style="width: 80%; background-color: green ;"></form></td>
-                                          <td align="center"><form><input type="submit" value="cancelar" style="width: 60%; background-color: red;" onclick="cedus'.$reg['id_usuario'].'()"></form></td>
+                                          <td colspan="2"><label style="cursor:pointer;margin-left:10%;" for="en espera"><div style="text-align:center;border:1px solid black;border-radius:10px;padding:5px;display:block;width:200%;background:#42b7f6">ir a archivos 🗂</div></label></td>
                                           </tr>
                                           </table>
-                                          <p id="subidaed'.$reg['id_usuario'].'"></p>
+                                          <br>
+                                          <p id="subidaed'.$reg['id_propietario'].'" align="center"></p>
+                                          <hr style="width:100%; background-color: #961b21; height:2px;">
                                           </div>
+                                          
+
+                                          <div id="avsdel'.$reg['id_propietario'].'" class="okok" style="">
+                                          <hr style="height:2px;background-color:#961b21;">
+                                          <h5> Seguro que desea eliminar el propietario: '.$reg['nombres'].' '.$reg['apellidos'].' con id: '.$reg['id_propietario'].'?<h5>
+                                          <form id="fusdel'.$reg['id_propietario'].'"><input type="hidden" name="deluss" value="'.$reg['id_propietario'].'"><input type="submit" value="confirmar" style=" width:30%;margin-left:15% ;background-color:#42b7f6;border:0.5px solid black;border-radius:5px;" ><input type="button" value="cancelar" id="canceldel'.$reg['id_propietario'].'" style="margin-left:10%;margin-right:15% ;background-color:#961b21;border:0.5px solid black;border-radius:5px;color:white;width:30%"></form>
+                                          <hr style="height:2px;background-color:#961b21";>
+                                          </div>
+
+
                                           <script type="text/javascript">
                                           $(document).ready(function(){
-                                            $("#osccc'.$reg['id_usuario'].'").click(function(){
+                                            $("#osccc'.$reg['id_propietario'].'").click(function(){
                                               location.reload();
                                             })
-                                             document.getElementById("formedus'.$reg['id_usuario'].'").addEventListener("submit", e=>{     
+                                             document.getElementById("formedus'.$reg['id_propietario'].'").addEventListener("submit", e=>{     
                                                  e.preventDefault()
                                                  jQuery.ajax({
                                                              url: "actualizardataus.php",
-                                                             data: $("#formedus'.$reg['id_usuario'].'").serialize(),
+                                                             data: $("#formedus'.$reg['id_propietario'].'").serialize(),
                                                              type: "POST",
                                                              success:function(data){
-                                                             $("#subidaed'.$reg['id_usuario'].'").html(data);
+                                                             $("#subidaed'.$reg['id_propietario'].'").html(data);
                                                              },
                                                              error:function(){}
                                                  });
                                                  }) 
+                                                 document.getElementById("fusel'.$reg['id_propietario'].'").addEventListener("submit", e=>{
+                                                      e.preventDefault()
+                                                      document.getElementById("osccc'.$reg['id_propietario'].'").style.display= "flex"
+                                                      document.getElementById("avsdel'.$reg['id_propietario'].'").style.display= "block"
+                                                      $("#canceldel'.$reg['id_propietario'].'").click(function(){
+                                                        document.getElementById("osccc'.$reg['id_propietario'].'").style.display="none"
+                                                        document.getElementById("avsdel'.$reg['id_propietario'].'").style.display="none"
+                                                        location.reload();
+                                                      })
+                                                      document.getElementById("fusdel'.$reg['id_propietario'].'").addEventListener("submit", e=>{
+                                                        e.preventDefault()
+                                                        jQuery.ajax({
+                                                          url: "deldata.php",
+                                                          data: $("#fusdel'.$reg['id_propietario'].'").serialize(),
+                                                          type: "POST",
+                                                          success:function(data){
+                                                            alert("Propietario '.$reg['nombres'].' '.$reg['apellidos'].' Eliminado")
+                                                            location.reload()
+                                                          },
+                                                          error:function(){}
+                                                          })
+                                                      })
+                                                })
                                              })
                                          </script>';
                                         }
@@ -222,13 +263,13 @@
       $(document).ready(function(){
         $("#btnNuevo").click(function(){
 
-                                                document.getElementById("newuser").innerHTML = `<div id="transp" onclick="cedus'.$reg['id_usuario'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisonew" style="width:30%; background-color: #961b21; padding: 20px; color:white; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
+                                                document.getElementById("newuser").innerHTML = `<div id="transp" onclick="cedus'.$reg['id_propietario'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisonew"  style="width:30%; background-color: white; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
                                                 <form method="post" id="newuserform">
                                                 <table align="center" class="tablaedit">
                                                 <tr>
-                                                <td colspan="2" align="center"> Ingresar Usuario </td>
+                                                <td colspan="2" align="center"> Ingresar Propietario </td>
                                                 </tr>
-                                                <hr style="width:100%; background-color: black;">
+                                                <hr style="width:100%; background-color: #961b21; height:2px;">
                                                 <tr>
                                                 <td>Nombres</td>
                                                 <td><input type="text" name="nombres"></td>
@@ -238,35 +279,43 @@
                                                 <td><input type="text" name="apellidos"></td>
                                                 </tr>
                                                 <tr>
-                                                <td>Nombre de usuario</td>
-                                                <td><input type="text" name="user"></td>
+                                                <td>Telefono</td>
+                                                <td><input type="text" name="telefono"></td>
                                                 </tr>
                                                 <tr>
-                                                <td>Contraseña</td>
-                                                <td><input type="password" name="pass"></td>
+                                                <td>Correo</td>
+                                                <td><input type="email" name="correo"></td>
                                                 </tr>
-                                                <tr>
-                                                <td>Email</td>
-                                                <td><input type="text" name="correo"></td>
-                                                </tr>
-                                                <tr>
-                                                <tr>
-                                                <td>Tipo de usuario</td>
-                                                <td><select name="" id="" style="width: 100%;">
-                                                <option value="">Administrador</option>
-                                                <option value="">Restringido</option>
-                                                <option value="">Empleado</option></select></td>
-                                                <tr>
-                                                <td align="center"><input type="submit" value="confirmar" style="width: 80%; background-color: green ;"></form></td>
-                                                <td align="center"><form><input type="submit" value="cancelar" style="width: 60%; background-color: red;" onclick="cedus'.$reg['id_usuario'].'()"></form></td>
+                                                <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color: #42b7f6;"></form></td>
+                                                <td align="center"><form><input type="submit" value="cancelar" style="color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_propietario'].'()"></form></td>
                                                 </tr>
                                                 </table>
-                                                <p id="subidaed'.$reg['id_usuario'].'"></p>
+                                                <p id="infonn" style="text-align:center"></p>
+                                                <hr style="width:100%; background-color: #961b21; height:2px;">
                                                 </div>`
                                                 document.getElementById("newuser").style.display="block"
                                                 document.getElementById("avisonew").style.display="block"
                                                 document.getElementById("transp").style.display="block"
                                                 document.getElementById("transp").style.position="fixed"
+                                                $(document).ready(function(){
+                                                document.getElementById("newuserform").addEventListener("submit", e=>{     
+                                                e.preventDefault()
+                                                jQuery.ajax({
+                                                          url: "newdata.php",
+                                                          data: $("#newuserform").serialize(),
+                                                          type: "POST",
+                                                          success:function(data){
+                                                          $("#infonn").html(data);
+                                                          },
+                                                          error:function(){}
+                                              });
+                                              })
+                                              })
+                                              $("#transp").click(function(){
+                                                document.getElementById("transp").style.display="none";
+                                                document.getElementById("newuser").style.display="none";
+                                                location.reload()
+                                              });
       })
     })
     </script>

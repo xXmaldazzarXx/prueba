@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <!-- Required meta tags -->
@@ -71,6 +71,7 @@
                                             function cedus'.$reg['id_usuario'].'(){
                                               document.getElementById("avisoeditar'.$reg['id_usuario'].'").style.display="none"
                                               document.getElementById("osccc'.$reg['id_usuario'].'").style.display="none"
+                                              location.reload()
                                             }
                                             $(document).ready(function(){
                                               document.getElementById("fused'.$reg['id_usuario'].'").addEventListener("submit", e=>{     
@@ -248,7 +249,7 @@
       $(document).ready(function(){
         $("#btnNuevo").click(function(){
 
-                                                document.getElementById("newuser").innerHTML = `<div id="transp" onclick="cedus()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisonew" style="width:30%; background-color: white; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
+                                                document.getElementById("newuser").innerHTML = `<div id="transp" onclick="cedus()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);"></div><div id="avisonew" style="width:30%; background-color: white; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
                                                 <form method="post" id="newuserform">
                                                 <table align="center" class="tablaedit">
                                                 <tr>
@@ -303,7 +304,7 @@
                                               $("#transp").click(function(){
                                                 document.getElementById("transp").style.display="none";
                                                 document.getElementById("newuser").style.display="none";
-                                                0
+                                                location.reload()
                                               });
                                                 
                                               

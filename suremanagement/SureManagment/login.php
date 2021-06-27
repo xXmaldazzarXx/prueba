@@ -45,7 +45,7 @@
 				<input class="btn" type="submit" value="REGISTRARSE" onclick="ver()" id="guardar">
 				<div class="options-02">
 					<p>¿Ya estas registrado? <a href="#">Iniciar Sesión</a></p>
-					<div id="ad" class="avssig"></div>
+					<div id="ad" class="avssig" style="width:100%;" align="center"></div>
 				</div>
 			</form>
 			<!--signup form end-->
