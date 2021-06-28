@@ -26,8 +26,10 @@
             <div class="suu">
             <h2>Insertar archivo</h2>
             <form id="sar">
-                <input id="arr" type="file" style="display:none">
+                <input name="archivo" id="arr" type="file" style="display:none">
                 <input id="enviar" type="submit" style="display: none;">
+                <input name="propietario" id="propietario" type="hidden" style="display: none;">
+                <input name="fecha" type="date" id="datearch" style="display: none;" >
             </form>
             <!-- Label de archivo -->
             <label for="arr">
@@ -49,12 +51,7 @@
             <h2>Cambiar propietario</h2>
             <label>
                 <div align="center" class="btnn" style="width:80%;margin-left:10%;cursor:auto;">
-                    <p>Seleccionar propietario:   <select name="nprop" style="margin-left:10px;font-size:1.1em;" ><option value="0">Elija un propietario</option></select> </p>
-                </div>
-            </label>
-            <label for="ccpro">
-                <div align="center" class="btnn" style="width:40%;margin-left:30%;cursor:auto;">
-                    <p>confirmar</p>
+                    <p>Seleccionar propietario:   <select id="sele" name="nprop" style="margin-left:10px;font-size:1.1em;" ><option value="a">Elija un propietario</option></select> </p>
                 </div>
             </label>
 
@@ -217,7 +214,25 @@
 <hr class="line1" align="center">
         </div>
         <script>
+        var hola = new Date(Date.now())
+        var dia = hola.getDate()
+        var mes = hola.getMonth() + 1;
+        var year = hola.getFullYear()
+        if( mes < 10 ){
+        mes = "0"+mes+""
+        }
+        document.getElementById("datearch").setAttribute("value", year+`-`+mes+`-`+dia);
+
         $(document).ready(function(){
+            //Opciones en el select
+            jQuery.ajax({
+                url: "options.php",
+                //data: $("#cpro").serialize(),
+                type: "POST",
+                success:function(data){
+                    $('#sele').html("<option selected value='g'>seleccionar propietario</option>"+data)
+                }
+                })
             //Validacion de subir documento
             var sar = document.getElementById("sar")
             sar.addEventListener('submit',function sub1(event){
@@ -242,16 +257,46 @@
             if(arc == ""){
                 document.getElementById("adver").innerHTML="Debe seleccionar un archivo para subir"
             }else{
+                
             jQuery.ajax({
                 url: "content.php",
                 success:function(data){
                     $('#adver').html(data)
                 }
             })
+
             }
             })
 
-        })
+
+                /*var pro = document.getElementById("cpro") 
+                pro.addEventListener('submit',function sub2(event){
+                event.preventDefault()
+                jQuery.ajax({
+                url: "doc1.php",
+                data: $("#cpro").serialize(),
+                type: "POST",
+                success:function(data){
+                    $('#nombre').html(data)
+                }
+                })
+
+                })*/
+
+                $('#sele').change(function(){
+                    jQuery.ajax({
+                    url: "doc1.php",
+                    data: $("#cpro").serialize(),
+                    type: "POST",
+                    success:function(data){
+                        $('#nombre').html(data)
+                    }
+                    })
+
+                })
+            
+
+            })
 
         </script>
 </body>
