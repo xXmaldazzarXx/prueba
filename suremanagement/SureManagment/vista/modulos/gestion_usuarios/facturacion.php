@@ -368,7 +368,7 @@
           margin-left:20%;
           margin-right:20%;
           width:60%;
-          margin-top: -600px;
+          margin-top: -300px;
         }
     </style>
     <!-- Prueba con git hub -->

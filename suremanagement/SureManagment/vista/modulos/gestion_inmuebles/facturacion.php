@@ -199,7 +199,7 @@
                                             jQuery.ajax({
                                               url: "opcpro.php",
                                               success:function(data){
-                                              $("#chapro'.$reg['id_inmueble'].'").html("<option selected>'.$reg['nombres'].' '.$reg['apellidos'].'</option>"+data);
+                                              $("#chapro'.$reg['id_inmueble'].'").html(`<option selected value="'.$reg['id_propietario'].'">'.$reg['nombres'].' '.$reg['apellidos'].'</option>`+data);
                                               },
                                               error:function(){}
                                             });
