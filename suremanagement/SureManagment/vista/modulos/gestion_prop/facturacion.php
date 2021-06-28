@@ -69,6 +69,11 @@
                                     }else{
                                         $consulta = mysqli_query($conn, "SELECT * FROM propietarios");
                                         while($reg = mysqli_fetch_array($consulta)){
+                                            if(!file_exists('../gestion_documentos/documentos/'.$reg['id_propietario'].'')){
+                                            mkdir('../gestion_documentos/documentos/'.$reg['id_propietario'].'','0777',true);
+                                            }else{
+                                              
+                                            }
                                             echo '<tr>
                                             <th>'.$reg['id_propietario'].'</th>
                                             <th>'.$reg['nombres'].'</th>

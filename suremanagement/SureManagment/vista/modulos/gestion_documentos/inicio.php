@@ -25,11 +25,11 @@
         <div class="nvo">
             <div class="suu">
             <h2>Insertar archivo</h2>
-            <form id="sar">
-                <input name="archivo" id="arr" type="file" style="display:none">
-                <input id="enviar" type="submit" style="display: none;">
+            <form id="sar" method="post" enctype="multipart/form-data">
+                <input name="docc" id="arr" type="file" style="display:none">
                 <input name="propietario" id="propietario" type="hidden" style="display: none;">
                 <input name="fecha" type="date" id="datearch" style="display: none;" >
+                <input id="enviar" type="submit" style="display: none;">
             </form>
             <!-- Label de archivo -->
             <label for="arr">
@@ -43,11 +43,10 @@
                     <p>Subir archivo</p>
                 </div>
             </label>
-            <p id="adver">aa</p>
+            <p id="carga">Quejeso</p>
             <br><br><br>
             <!-- Seleccion de otro propietario -->
             <form id="cpro">
-            <input type="hidden" value="id del propietario">
             <h2>Cambiar propietario</h2>
             <label>
                 <div align="center" class="btnn" style="width:80%;margin-left:10%;cursor:auto;">
@@ -61,157 +60,17 @@
         </div>
 
 
-        <div class="contenido">
+        <div id="contenido" class="contenido">
             <div class="inicio">
                 <h3>archivos</h3>
             </div>
             <hr>
             <!--Informacion de archivo y descargar-->
-            <div class="contar">
-                <div id="infoar.." class="infoar">
-                    <p>Request document<br></p>
-                </div>
-                <div class="btndown">
-                    <h3><a href="Request document" download>Descargar</a></h3>
-                </div>
-            </div>
-            <hr class="line1" align="center">
-             <!--Fin Informacion de archivo y descargar-->
-             <div class="contar">
-                 <div id="infoar.." class="infoar">
-                 </div>
-                <div class="btndown">
-                    <h3>Descargar</h3>
-                </div>
-            </div>
-            <hr class="line1" align="center">
-            <!--Aqui-->
-            <div class="contar">
-                <div id="infoar.." class="infoar">
-                </div>
-               <div class="btndown">
-                   <h3>Descargar</h3>
-               </div>
-           </div>
-           <hr class="line1" align="center">
-           <!--Aqui-->
-           <div class="contar">
-            <div id="infoar.." class="infoar">
-            </div>
-           <div class="btndown">
-               <h3>Descargar</h3>
-           </div>
-       </div>
-       <hr class="line1" align="center">
-       <!--Aqui-->
-       <div class="contar">
-        <div id="infoar.." class="infoar">
-        </div>
-       <div class="btndown">
-           <h3>Descargar</h3>
-       </div>
-   </div>
-   <hr class="line1" align="center">
-   <!--Aqui-->
-   <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-<!--Aqui-->
-<div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-<!--Aqui-->
-<div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-<!--Aqui-->
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
-  <!--Aqui-->
-  <div class="contar">
-    <div id="infoar.." class="infoar">
-    </div>
-   <div class="btndown">
-       <h3>Descargar</h3>
-   </div>
-</div>
-<hr class="line1" align="center">
+
+            <!-- a -->
+
+
+
         </div>
         <script>
         var hola = new Date(Date.now())
@@ -230,43 +89,11 @@
                 //data: $("#cpro").serialize(),
                 type: "POST",
                 success:function(data){
-                    $('#sele').html("<option selected value='g'>seleccionar propietario</option>"+data)
+                    $('#sele').html("<option selected value='fff'>seleccionar propietario</option>"+data)
                 }
                 })
             //Validacion de subir documento
             var sar = document.getElementById("sar")
-            sar.addEventListener('submit',function sub1(event){
-            var arc = document.getElementById("arr").value
-            event.preventDefault()
-            if(arc == ""){
-                document.getElementById("adver").innerHTML="Debe seleccionar un archivo para subir"
-            }else{
-            jQuery.ajax({
-                url: "content.php",
-                success:function(data){
-                    $('#adver').html(data)
-                }
-            })
-            }
-            })
-
-            var sar = document.getElementById("sar")
-            sar.addEventListener('submit',function sub1(event){
-            var arc = document.getElementById("arr").value
-            event.preventDefault()
-            if(arc == ""){
-                document.getElementById("adver").innerHTML="Debe seleccionar un archivo para subir"
-            }else{
-                
-            jQuery.ajax({
-                url: "content.php",
-                success:function(data){
-                    $('#adver').html(data)
-                }
-            })
-
-            }
-            })
 
 
                 /*var pro = document.getElementById("cpro") 
@@ -284,6 +111,10 @@
                 })*/
 
                 $('#sele').change(function(){
+
+                    document.getElementById("propietario").value =document.getElementById("sele").value
+
+
                     jQuery.ajax({
                     url: "doc1.php",
                     data: $("#cpro").serialize(),
@@ -293,11 +124,52 @@
                     }
                     })
 
+                    jQuery.ajax({
+                    url: "doc2.php",
+                    data: $("#cpro").serialize(),
+                    type: "POST",
+                    success:function(data){
+                        $('#contenido').html(/*Entrada de Documentos a descargar*/'<div class="inicio"><h3>archivos</h3></div><hr>'+data)
+                    }
+                    })
+
                 })
             
+
+
+            sar.addEventListener('submit',function sub1(event){
+            var arc = document.getElementById("arr").value
+            event.preventDefault()
+            if(arc == ""){
+                document.getElementById("carga").innerHTML="Debe seleccionar un archivo para subir"
+            }else{
+
+            jQuery.ajax({
+                url: "content.php",
+                data: $("#sar").serialize(),
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                success:function(data){
+                    $('#carga').html(data)
+                },
+                error:function(data) 
+                {}  
+            })
+
+            }
+            
+            })
+
+
+
+
 
             })
 
         </script>
+        <div id="cars"></div>
 </body>
 </html>
