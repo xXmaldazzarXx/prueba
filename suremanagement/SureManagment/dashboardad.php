@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang='es' dir='ltr'>
   <head>
+  <?php
+  SESSION_START();
+  $sec = $_SESSION['usersec'];
+  $con = mysqli_connect("localhost","root","","suremanagement");
+  $cons = mysqli_query($con,"SELECT * FROM usuarios WHERE usuario = '$sec' ");
+  if(isset($cons)){
+  while($reg = mysqli_fetch_array($cons)){
+    $nsec = $reg['id_usuario'];
+    $_SESSION['newnum'] = $nsec;
+    $abcdefg = $_SESSION['newnum'];
+  }
+  }
+  if(!isset($_SESSION['usersec'])){
+    header("Status: 301 Moved Permanently");
+    header("Location: index.html");
+  }else{
+    if($sec <> 'admin' ){
+        header("Status: 301 Moved Permanently");
+        header("Location: index.html");
+    }}
+        ?>
   <script src="jquery-3.5.1.min.js"></script>
   <script type="text/javascript">
 (function(document) {
@@ -42,29 +63,6 @@
   });
 
 })(document);
-
-console.log(<?php
-  SESSION_START();
-  $sec = $_SESSION['usersec'];
-  $con = mysqli_connect("localhost","root","","suremanagement");
-  $cons = mysqli_query($con,"SELECT * FROM usuarios WHERE usuario = '$sec' ");
-  if(isset($cons)){
-  while($reg = mysqli_fetch_array($cons)){
-    $nsec = $reg['id_usuario'];
-    $_SESSION['newnum'] = $nsec;
-    $abcdefg = $_SESSION['newnum'];
-    echo $abcdefg;
-  }
-  }
-  if(!isset($_SESSION['usersec'])){
-    header("Status: 301 Moved Permanently");
-    header("Location: index.html");
-  }else{
-    if($sec <> 'admin' ){
-        header("Status: 301 Moved Permanently");
-        header("Location: index.html");
-    }}
-        ?>)
 </script>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
