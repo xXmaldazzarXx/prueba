@@ -4,7 +4,11 @@
     <?php
   SESSION_START();
   $sec = $_SESSION['usersec'];
-  echo $sec;
+  $con = mysqli_connect("localhost","root","","suremanagement");
+  $cons = mysqli_query($conn,"SELECT * FROM usuarios WHERE usuario = '$sec' ");
+  while($reg = mysqli_fetch_array($cons)){
+    $iduser__ = $_SESSION['id_usuario'];
+  }
   if(!isset($_SESSION['usersec'])){
     header("Status: 301 Moved Permanently");
     header("Location: index.html");
