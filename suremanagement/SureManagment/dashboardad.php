@@ -120,7 +120,7 @@ console.log(<?php
       <a href='vista/modulos/gestion_inmuebles/facturacion.php' target='principal'><i class='fas fa-sign'></i><span>Gestión Inmuebles</span></a>
       <a href='vista/modulos/gestion_documentos/inicio.php' target='principal'><i class='fas fa-folder-open'></i><span>Gestión archivos</span></a>
       <a href='vista/modulos/gestion_usuarios/facturacion.php' target='principal'><i class="fas fa-user-cog"></i><span>Gestión usuarios</span></a>
-      <a href='vista/modulos/gestion_cuenta/facturacion.php' target='principal'><i class='fas fa-address-card'></i><span>Cuenta</span></a>
+      <a href='vista/modulos/Usuario/cuenta.php' target='principal'><i class='fas fa-address-card'></i><span>Cuenta</span></a>
     </div>
     <!--sidebar end-->
     <div id='contenido' class='content' style="margin-top:50px;">

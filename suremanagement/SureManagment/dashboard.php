@@ -96,7 +96,7 @@
       <a href='vista/modulos/gestion_prop/facturacion.php' target='principal'><i class='fas fa-users'></i><span>Gestión Propietarios</span></a>
       <a href='vista/modulos/gestion_inmuebles/facturacion.php' target='principal'><i class='fas fa-sign'></i><span>Gestión Inmuebles</span></a>
       <a href='vista/modulos/gestion_documentos/facturacion.php' target='principal'><i class='fas fa-folder-open'></i><span>Gestión archivos</span></a>
-      <a href='vista/modulos/gestion_usuarios/facturacion.php' target='principal'><i class='fas fa-address-card'></i><span>Cuenta</span></a>
+      <a href='vista/modulos/Usuario/cuenta.php' target='principal'><i class='fas fa-address-card'></i><span>Cuenta</span></a>
     </div>
     <!--sidebar end-->
     <div id='contenido' class='content'>
