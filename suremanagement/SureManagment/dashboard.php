@@ -114,6 +114,11 @@
   error_reporting(0);
   SESSION_START();
   $sec = $_SESSION['usersec'];
+  $con = mysqli_connect("localhost","root","","suremanagement");
+  $cons = mysqli_query($conn,"SELECT * FROM usuarios WHERE usuario = '$sec' ");
+  while($reg = mysqli_fetch_array($cons)){
+    $iduser__ = $_SESSION['id_usuario'];
+  }
   echo $sec;
   if(!isset($_SESSION['usersec'])){
     echo "<script> alert('Acceso denegado') </script>";
