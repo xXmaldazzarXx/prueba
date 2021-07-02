@@ -1,0 +1,543 @@
+---
+allow_insecure_content: true
+allow_run_in_background: true
+app:
+  app_name: Riot Client
+  local_settings_file: RiotClientSettings.yaml
+  log_dir: Riot Client Logs
+  multitenant: true
+  private_settings_file: RiotClientPrivateSettings.yaml
+  project: Keystone
+  respawn:
+    command: RiotClientServices.exe
+    display_name: Riot Client Services
+  splash: riot
+build:
+  patchline: KeystoneFoundationLiveWin
+  patchline-visible-name: ''
+default_product:
+  arguments:
+  - --app-port={remoting-app-port}
+  - --remoting-auth-token={remoting-auth-token}
+  - --app-pid={foundation-pid}
+  executable: RiotClientUx.exe
+  id: KeystoneClient
+  relative_path: UX
+default_region: NA
+enable_bug_reporter: true
+enable_crashpad: true
+enable_direct_launch: true
+enable_eula: true
+enable_patching: true
+enable_player_feedback_tool: true
+enable_rail_integration_v1: false
+enable_rail_integration_v2: false
+enable_rcrpcs_integration: false
+enable_remoting_trace: false
+enable_riot_login: true
+enable_self_update: true
+enable_system_tray: true
+enable_tssapi_integration: false
+environment:
+  tags:
+  - live
+expected_partner_launcher_arg: ''
+insecure_tls_versions: true
+launch_ux: false
+league_required_country:
+  default:
+  - BR
+  - EUNE
+  - EUW
+  - JP
+  - LA1
+  - LA2
+  - NA
+  - OC1
+  - RU
+  - TR
+  kor:
+  - KR
+publisher: riot
+region_data:
+  BR:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: pt_BR
+    region_election_locales:
+    - pt_BR
+    rso:
+      client: riot-client
+    rso_platform_id: BR1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  EUNE:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: en_GB
+    region_election_locales:
+    - en_GB
+    - cs_CZ
+    - el_GR
+    - hu_HU
+    - pl_PL
+    - ro_RO
+    rso:
+      client: riot-client
+    rso_platform_id: EUN1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  EUW:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: en_GB
+    region_election_locales:
+    - en_GB
+    - de_DE
+    - es_ES
+    - fr_FR
+    - it_IT
+    rso:
+      client: riot-client
+    rso_platform_id: EUW1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  JP:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: ja_JP
+    region_election_locales:
+    - ja_JP
+    rso:
+      client: riot-client
+    rso_platform_id: JP1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  KR:
+    available_locales:
+    - ko_KR
+    default_locale: ko_KR
+    rso:
+      client: riot-client
+    rso_platform_id: KR
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  LA1:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: es_MX
+    region_election_locales:
+    - es_MX
+    rso:
+      client: riot-client
+    rso_platform_id: LA1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  LA2:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: es_MX
+    region_election_locales:
+    - es_MX
+    rso:
+      client: riot-client
+    rso_platform_id: LA2
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  NA:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: en_US
+    region_election_locales:
+    - en_US
+    rso:
+      client: riot-client
+    rso_platform_id: NA1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  OC1:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: en_AU
+    region_election_locales:
+    - en_AU
+    rso:
+      client: riot-client
+    rso_platform_id: OC1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  PBE:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: en_US
+    region_election_locales:
+    - en_US
+    rso:
+      client: riot-client
+    rso_platform_id: PBE1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  RU:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: ru_RU
+    region_election_locales:
+    - ru_RU
+    rso:
+      client: riot-client
+    rso_platform_id: RU
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+  TR:
+    available_locales:
+    - ar_AE
+    - cs_CZ
+    - de_DE
+    - el_GR
+    - en_US
+    - es_MX
+    - es_ES
+    - fr_FR
+    - hu_HU
+    - id_ID
+    - it_IT
+    - ja_JP
+    - ms_MY
+    - pl_PL
+    - pt_BR
+    - ro_RO
+    - ru_RU
+    - th_TH
+    - tr_TR
+    - vi_VN
+    - zh_TW
+    default_locale: tr_TR
+    region_election_locales:
+    - tr_TR
+    rso:
+      client: riot-client
+    rso_platform_id: TR1
+    servers:
+      chat:
+        auto_query_msg_history: true
+        host: rnet-stable.chat.si.riotgames.com
+        port: 5223
+      client_config:
+        client_config_url: https://clientconfig.rpg.riotgames.com
+        scope: globalriot.pdx2.rnet-live.rnet.client-config
+      telemetry:
+        analytics_collector_url: https://data.riotgames.com
+        dradis_collector_url: https://ekg.riotgames.com/messages
+        scope: globalriot.pdx2.rnet-live.riotclient.foundation
+url_protocol: riotclient
+write_data_beside_install_dir: false

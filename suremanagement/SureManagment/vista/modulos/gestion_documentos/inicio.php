@@ -154,13 +154,30 @@
                 processData:false,
                 success:function(data){
                     $('#carga').html(data)
+
+
+                    jQuery.ajax({
+                    url: "doc2.php",
+                    data: $("#cpro").serialize(),
+                    type: "POST",
+                    success:function(data){
+                        $('#contenido').html(/*Entrada de Documentos a descargar*/'<div class="inicio"><h3>archivos</h3></div><hr>'+data)
+                    }
+                    })
+
+                    
                 },
                 error:function(data) 
                 {}  
             })
 
+
+
+
+
             }
             
+
             })
 
 
