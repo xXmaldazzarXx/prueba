@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<title>Suremanagement</title>
-		
 		<!-- Favicons -->
         <link href="img/about/LogoSM.png" rel="icon">
         <link href="img/about/LogoSM.png" rel="apple-touch-icon">

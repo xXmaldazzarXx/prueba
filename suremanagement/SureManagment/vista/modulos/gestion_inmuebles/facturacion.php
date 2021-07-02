@@ -186,6 +186,9 @@
                                           var dia = hola.getDate()
                                           var mes = hola.getMonth() + 1;
                                           var year = hola.getFullYear()
+                                          if( dia < 10 ){
+                                            dia = "0"+dia+""
+                                            }
                                           if( mes < 10 ){
                                             mes = "0"+mes+""
                                           }
@@ -328,6 +331,9 @@
         var dia = hola.getDate()
         var mes = hola.getMonth() + 1;
         var year = hola.getFullYear()
+        if( dia < 10 ){
+        dia = "0"+dia+""
+        }
         if( mes < 10 ){
         mes = "0"+mes+""
         }
