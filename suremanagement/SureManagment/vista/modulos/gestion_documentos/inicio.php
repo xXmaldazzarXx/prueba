@@ -43,7 +43,7 @@
                     <p>Subir archivo</p>
                 </div>
             </label>
-            <p id="carga">Quejeso</p>
+            <p id="carga"></p>
             <br><br><br>
             <!-- Seleccion de otro propietario -->
             <form id="cpro">

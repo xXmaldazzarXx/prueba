@@ -38,7 +38,7 @@
     <link rel="stylesheet"  type="text/css" href="../../../css/dataTables.bootstrap4.min.css">     
      <header>
 <!--         <h3 class="text-center text-light">Tutorial</h3>-->
-         <h4 class="text-center text-light" style="background-color:#961b21;"><span style="background-color:rgba(0,0,0,0);" class="badge badge-danger">Gestion de Usuarios</span></h4> 
+         <h4 class="text-center text-light" style="background-color:#961b21;"><span style="background-color:rgba(0,0,0,0);" class="badge badge-danger">Gestion de Inmuebles</span></h4> 
      </header>    
     <br>  
     <div class="container">
@@ -165,9 +165,6 @@
                                           <tr>
                                           <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color:#42b7f6 ;"></form></td>
                                           <td align="center"><form><input type="submit" value="cancelar" style=" color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_inmueble'].'()"></form></td>
-                                          </tr>
-                                          <tr>
-                                          <td colspan="2"><label style="cursor:pointer;margin-left:10%;" for="en espera"><div style="text-align:center;border:1px solid black;border-radius:10px;padding:5px;display:block;width:200%;background:#42b7f6">ir a archivos 🗂</div></label></td>
                                           </tr>
                                           </table>
                                           <br>

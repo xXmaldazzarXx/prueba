@@ -38,7 +38,7 @@
     <link rel="stylesheet"  type="text/css" href="../../../css/dataTables.bootstrap4.min.css">     
      <header>
 <!--         <h3 class="text-center text-light">Tutorial</h3>-->
-         <h4 class="text-center text-light" style="background-color:#961b21;"><span style="background-color:rgba(0,0,0,0);" class="badge badge-danger">Gestion de Usuarios</span></h4> 
+         <h4 class="text-center text-light" style="background-color:#961b21;"><span style="background-color:rgba(0,0,0,0);" class="badge badge-danger">Gestion de Propietarios</span></h4> 
      </header>    
     <br>  
     <div class="container">
@@ -58,7 +58,6 @@
                                     <th>Apellidos</th>
                                     <th>Telefono</th>
                                     <th>Correo</th>
-                                    <th>Archivos</th>
                                     <th colspan="2">Acciones</th>
                                 </tr>
                             </thead>
@@ -80,7 +79,6 @@
                                             <th>'.$reg['apellidos'].'</th>
                                             <th>'.$reg['telefono'].'</th>
                                             <th>'.$reg['correo'].'</th>
-                                            <th><label for=""><div style="cursor:pointer;text-align:center;">🗂<div></label></th>
                                             <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['id_propietario'].'"><input type="hidden" value="'.$reg['id_propietario'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['id_propietario'].'()"></form><form id="fusel'.$reg['id_propietario'].'"><input type="hidden" value="'.$reg['id_propietario'].'"><input type="submit" onclick="delus'.$reg['id_propietario'].'" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
                                             </tr>';
                                             echo '<script>
@@ -118,7 +116,6 @@
                                     <th>Apellidos</th>
                                     <th>Telefono</th>
                                     <th>Correo</th>
-                                    <th>Archivos</th>
                                     <th colspan="3">Acciones</th>
                                 </tr>
                             </tfoot>         
@@ -166,9 +163,6 @@
                                           <tr>
                                           <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color:#42b7f6 ;"></form></td>
                                           <td align="center"><form><input type="submit" value="cancelar" style=" color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_propietario'].'()"></form></td>
-                                          </tr>
-                                          <tr>
-                                          <td colspan="2"><label style="cursor:pointer;margin-left:10%;" for="en espera"><div style="text-align:center;border:1px solid black;border-radius:10px;padding:5px;display:block;width:200%;background:#42b7f6">ir a archivos 🗂</div></label></td>
                                           </tr>
                                           </table>
                                           <br>
