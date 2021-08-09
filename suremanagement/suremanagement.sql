@@ -121,7 +121,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nombres`, `apellidos`, `usuario`, `contra
 --
 -- Indices de la tabla `inmuebles_arriendo`
 --
-
+ALTER table `inmuebles_arriendo`
+ADD PRIMARY KEY (`id_inmueble`);
 
 --
 -- Indices de la tabla `propietarios`
