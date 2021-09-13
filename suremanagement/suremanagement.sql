@@ -1,3 +1,4 @@
+
 -- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
@@ -20,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `suremanagement`
 --
+#DROP DATABASE suremanagement;
 CREATE DATABASE suremanagement;
 USE suremanagement;
 -- --------------------------------------------------------
@@ -172,3 +174,150 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+#Cambios en la tabla propietarios
+ALTER TABLE inmuebles_arriendo
+DROP CONSTRAINT inmuebles_arriendo_ibfk_1;
+
+ALTER TABLE propietarios
+MODIFY id_propietario int unsigned;
+
+ALTER TABLE propietarios
+DROP PRIMARY KEY;
+
+ALTER TABLE propietarios
+ADD doc_prop INT(12) NOT NULL;
+
+UPDATE propietarios
+SET doc_prop=1000506588
+WHERE id_propietario=1;
+
+UPDATE propietarios
+SET doc_prop=354987621
+WHERE id_propietario=2;
+
+UPDATE propietarios
+SET doc_prop=156489723
+WHERE id_propietario=3;
+
+UPDATE propietarios
+SET doc_prop=123789456
+WHERE id_propietario=5;
+
+UPDATE propietarios
+SET doc_prop=154387629
+WHERE id_propietario=7;
+
+ALTER TABLE propietarios
+ADD PRIMARY KEY (doc_prop);
+
+ALTER TABLE propietarios
+DROP id_propietario;
+
+
+
+#Cambios en la tabla usuarios
+ALTER TABLE usuarios
+ADD rol VARCHAR(10) NOT NULL;
+
+UPDATE usuarios
+SET rol="admin"
+WHERE id_usuario=65;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=66;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=67;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=68;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=69;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=70;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=71;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=72;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=73;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=74;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=75;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=76;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=77;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=78;
+
+UPDATE usuarios
+SET rol="empleado"
+WHERE id_usuario=79;
+
+
+
+#Cambios en la tabla documentos
+ALTER TABLE documentos
+ADD id_docs INT(5) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE documentos
+ADD PRIMARY KEY (id_docs);
+
+ALTER TABLE documentos
+ADD doc_prop INT(12) NOT NULL;
+
+ALTER TABLE documentos
+ADD CONSTRAINT fk_docs_1 FOREIGN KEY (doc_prop) REFERENCES propietarios(doc_prop);
+
+
+
+#Cambios en la tabla inmuebles_arriendo
+ALTER TABLE inmuebles_arriendo
+DROP id_propietario;
+
+ALTER TABLE inmuebles_arriendo
+ADD doc_prop INT(12) NOT NULL;
+
+UPDATE inmuebles_arriendo
+SET doc_prop=1000506588
+WHERE id_inmueble=1;
+
+ALTER TABLE inmuebles_arriendo
+ADD CONSTRAINT fk_inmu_1 FOREIGN KEY (doc_prop) REFERENCES propietarios(doc_prop);
+
+SELECT * FROM documentos;
+SELECT * FROM usuarios;
+SELECT * FROM inmuebles_arriendo;
+SELECT * FROM propietarios;
+
+DESCRIBE documentos;
+DESCRIBE usuarios;
+DESCRIBE inmuebles_arriendo;
+DESCRIBE propietarios;
+

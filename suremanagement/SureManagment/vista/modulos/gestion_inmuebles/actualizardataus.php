@@ -8,7 +8,7 @@
             complemento='$_POST[complemento]',
             valor='$_POST[valor]',
             fecha_pago='$_POST[fecha]',
-            id_propietario='$_POST[propietario]'
+            doc_prop='$_POST[propietario]'
             WHERE id_inmueble = $_POST[ppp]");
 
             echo 'Se ha editado correctamente';

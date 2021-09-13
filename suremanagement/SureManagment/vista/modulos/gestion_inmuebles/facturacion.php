@@ -67,7 +67,7 @@
                                     if ($conn -> connect_error){
                                         echo "Error en la conexion";
                                     }else{
-                                        $consulta = mysqli_query($conn, "SELECT id_inmueble,direccion,complemento,valor,fecha_pago,nombres,apellidos,inmuebles_arriendo.id_propietario FROM inmuebles_arriendo INNER JOIN propietarios on inmuebles_arriendo.id_propietario = propietarios.id_propietario");
+                                        $consulta = mysqli_query($conn, "SELECT id_inmueble,direccion,complemento,valor,fecha_pago,nombres,apellidos,inmuebles_arriendo.doc_prop FROM inmuebles_arriendo INNER JOIN propietarios on inmuebles_arriendo.doc_prop = propietarios.doc_prop");
                                         while($reg = mysqli_fetch_array($consulta)){
                                             echo '<tr>
                                             <th>'.$reg['id_inmueble'].'</th>
@@ -133,7 +133,7 @@
                                     if ($conn -> connect_error){
                                         echo "Error en la conexion";
                                     }else{
-                                        $consulta = mysqli_query($conn, "SELECT id_inmueble,direccion,complemento,valor,fecha_pago,nombres,apellidos,inmuebles_arriendo.id_propietario FROM inmuebles_arriendo INNER JOIN propietarios on inmuebles_arriendo.id_propietario = propietarios.id_propietario");
+                                        $consulta = mysqli_query($conn, "SELECT id_inmueble,direccion,complemento,valor,fecha_pago,nombres,apellidos,inmuebles_arriendo.doc_prop FROM inmuebles_arriendo INNER JOIN propietarios on inmuebles_arriendo.doc_prop = propietarios.doc_prop");
                                         while($reg = mysqli_fetch_array($consulta)){
                                           echo '<div id="osccc'.$reg['id_inmueble'].'" onclick="cedus'.$reg['id_inmueble'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisoeditar'.$reg['id_inmueble'].'" style="width:30%; background-color: #ffffff; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
                                           <form method="post" id="formedus'.$reg['id_inmueble'].'">
@@ -199,7 +199,7 @@
                                             jQuery.ajax({
                                               url: "opcpro.php",
                                               success:function(data){
-                                              $("#chapro'.$reg['id_inmueble'].'").html(`<option selected value="'.$reg['id_propietario'].'">'.$reg['nombres'].' '.$reg['apellidos'].'</option>`+data);
+                                              $("#chapro'.$reg['id_inmueble'].'").html(`<option selected value="'.$reg['doc_prop'].'">'.$reg['nombres'].' '.$reg['apellidos'].'</option>`+data);
                                               },
                                               error:function(){}
                                             });

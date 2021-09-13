@@ -3,7 +3,7 @@
             if ($conn -> connect_error){
                 echo "Error en la conexion";
             }else{
-                $del = mysqli_query($conn,"DELETE FROM propietarios WHERE id_propietario = $_POST[deluss] ");
+                $del = mysqli_query($conn,"DELETE FROM propietarios WHERE doc_prop = $_POST[deluss] ");
             }
     
 ?>

@@ -53,7 +53,7 @@
                         <table id="tablaPersonas" class="table table-striped table-bordered table-condensed order-table" style="width:100%">
                             <thead class="text-center">
                                 <tr>
-                                    <th>No.</th>
+                                    <th>Identificación</th>
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
                                     <th>Telefono</th>
@@ -68,35 +68,35 @@
                                     }else{
                                         $consulta = mysqli_query($conn, "SELECT * FROM propietarios");
                                         while($reg = mysqli_fetch_array($consulta)){
-                                            if(!file_exists('../gestion_documentos/documentos/'.$reg['id_propietario'].'')){
-                                            mkdir('../gestion_documentos/documentos/'.$reg['id_propietario'].'','0777',true);
+                                            if(!file_exists('../gestion_documentos/documentos/'.$reg['doc_prop'].'')){
+                                            mkdir('../gestion_documentos/documentos/'.$reg['doc_prop'].'','0777',true);
                                             }else{
                                               
                                             }
                                             echo '<tr>
-                                            <th>'.$reg['id_propietario'].'</th>
+                                            <th>'.$reg['doc_prop'].'</th>
                                             <th>'.$reg['nombres'].'</th>
                                             <th>'.$reg['apellidos'].'</th>
                                             <th>'.$reg['telefono'].'</th>
                                             <th>'.$reg['correo'].'</th>
-                                            <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['id_propietario'].'"><input type="hidden" value="'.$reg['id_propietario'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['id_propietario'].'()"></form><form id="fusel'.$reg['id_propietario'].'"><input type="hidden" value="'.$reg['id_propietario'].'"><input type="submit" onclick="delus'.$reg['id_propietario'].'" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
+                                            <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['doc_prop'].'"><input type="hidden" value="'.$reg['doc_prop'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['doc_prop'].'()"></form><form id="fusel'.$reg['doc_prop'].'"><input type="hidden" value="'.$reg['doc_prop'].'"><input type="submit" onclick="delus'.$reg['doc_prop'].'" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
                                             </tr>';
                                             echo '<script>
-                                            function editus'.$reg['id_propietario'].'(){
-                                              document.getElementById("avisoeditar'.$reg['id_propietario'].'").style.display="block"
-                                              document.getElementById("osccc'.$reg['id_propietario'].'").style.display="flex"
-                                              document.getElementById("osccc'.$reg['id_propietario'].'").style.position="fixed"
+                                            function editus'.$reg['doc_prop'].'(){
+                                              document.getElementById("avisoeditar'.$reg['doc_prop'].'").style.display="block"
+                                              document.getElementById("osccc'.$reg['doc_prop'].'").style.display="flex"
+                                              document.getElementById("osccc'.$reg['doc_prop'].'").style.position="fixed"
                                             }
-                                            function cedus'.$reg['id_propietario'].'(){
-                                              document.getElementById("avisoeditar'.$reg['id_propietario'].'").style.display="none"
-                                              document.getElementById("osccc'.$reg['id_propietario'].'").style.display="none"
+                                            function cedus'.$reg['doc_prop'].'(){
+                                              document.getElementById("avisoeditar'.$reg['doc_prop'].'").style.display="none"
+                                              document.getElementById("osccc'.$reg['doc_prop'].'").style.display="none"
                                             }
                                             $(document).ready(function(){
-                                              document.getElementById("fused'.$reg['id_propietario'].'").addEventListener("submit", e=>{     
+                                              document.getElementById("fused'.$reg['doc_prop'].'").addEventListener("submit", e=>{     
                                               e.preventDefault()
                                               jQuery.ajax({
                                                           url: "valdel.php",
-                                                          data: $("#fused'.$reg['id_propietario'].'").serialize(),
+                                                          data: $("#fused'.$reg['doc_prop'].'").serialize(),
                                                           type: "POST",
                                                           success:function(data){
                                                           $("#ad").html(data);
@@ -111,7 +111,7 @@
                                 ?>
                             <tfoot align="center">
                                 <tr>
-                                    <th>No.</th>
+                                    <th>Identificación</th>
                                     <th>Nombre</th>
                                     <th>Apellidos</th>
                                     <th>Telefono</th>
@@ -137,8 +137,8 @@
                                     }else{
                                         $consulta = mysqli_query($conn, "SELECT * FROM propietarios");
                                         while($reg = mysqli_fetch_array($consulta)){
-                                          echo '<div id="osccc'.$reg['id_propietario'].'" onclick="cedus'.$reg['id_propietario'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisoeditar'.$reg['id_propietario'].'" style="width:30%; background-color: #ffffff; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
-                                          <form method="post" id="formedus'.$reg['id_propietario'].'">
+                                          echo '<div id="osccc'.$reg['doc_prop'].'" onclick="cedus'.$reg['doc_prop'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisoeditar'.$reg['doc_prop'].'" style="width:30%; background-color: #ffffff; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
+                                          <form method="post" id="formedus'.$reg['doc_prop'].'">
                                           <table align="center" class="tablaedit">
                                           <tr>
                                           <td colspan="2" align="center"> Editar Propietario</td>
@@ -146,7 +146,7 @@
                                           <hr style="width:100%; background-color: #961b21; height:2px;">
                                           <tr>
                                           <td>Nombres</td>
-                                          <td><input type="text" value="'.$reg['nombres'].'" name="nombres"><input type="hidden" value="'.$reg['id_propietario'].'" name="ppp"></td>
+                                          <td><input type="text" value="'.$reg['nombres'].'" name="nombres"><input type="hidden" value="'.$reg['doc_prop'].'" name="ppp"></td>
                                           </tr>
                                           <tr>
                                           <td>Apellidos</td>
@@ -162,54 +162,54 @@
                                           </tr>
                                           <tr>
                                           <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color:#42b7f6 ;"></form></td>
-                                          <td align="center"><form><input type="submit" value="cancelar" style=" color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_propietario'].'()"></form></td>
+                                          <td align="center"><form><input type="submit" value="cancelar" style=" color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['doc_prop'].'()"></form></td>
                                           </tr>
                                           </table>
                                           <br>
-                                          <p id="subidaed'.$reg['id_propietario'].'" align="center"></p>
+                                          <p id="subidaed'.$reg['doc_prop'].'" align="center"></p>
                                           <hr style="width:100%; background-color: #961b21; height:2px;">
                                           </div>
                                           
 
-                                          <div id="avsdel'.$reg['id_propietario'].'" class="okok" style="">
+                                          <div id="avsdel'.$reg['doc_prop'].'" class="okok" style="">
                                           <hr style="height:2px;background-color:#961b21;">
-                                          <h5> Seguro que desea eliminar el propietario: '.$reg['nombres'].' '.$reg['apellidos'].' con id: '.$reg['id_propietario'].'?<h5>
-                                          <form id="fusdel'.$reg['id_propietario'].'"><input type="hidden" name="deluss" value="'.$reg['id_propietario'].'"><input type="submit" value="confirmar" style=" width:30%;margin-left:15% ;background-color:#42b7f6;border:0.5px solid black;border-radius:5px;" ><input type="button" value="cancelar" id="canceldel'.$reg['id_propietario'].'" style="margin-left:10%;margin-right:15% ;background-color:#961b21;border:0.5px solid black;border-radius:5px;color:white;width:30%"></form>
+                                          <h5> Seguro que desea eliminar el propietario: '.$reg['nombres'].' '.$reg['apellidos'].' con id: '.$reg['doc_prop'].'?<h5>
+                                          <form id="fusdel'.$reg['doc_prop'].'"><input type="hidden" name="deluss" value="'.$reg['doc_prop'].'"><input type="submit" value="confirmar" style=" width:30%;margin-left:15% ;background-color:#42b7f6;border:0.5px solid black;border-radius:5px;" ><input type="button" value="cancelar" id="canceldel'.$reg['doc_prop'].'" style="margin-left:10%;margin-right:15% ;background-color:#961b21;border:0.5px solid black;border-radius:5px;color:white;width:30%"></form>
                                           <hr style="height:2px;background-color:#961b21";>
                                           </div>
 
 
                                           <script type="text/javascript">
                                           $(document).ready(function(){
-                                            $("#osccc'.$reg['id_propietario'].'").click(function(){
+                                            $("#osccc'.$reg['doc_prop'].'").click(function(){
                                               location.reload();
                                             })
-                                             document.getElementById("formedus'.$reg['id_propietario'].'").addEventListener("submit", e=>{     
+                                             document.getElementById("formedus'.$reg['doc_prop'].'").addEventListener("submit", e=>{     
                                                  e.preventDefault()
                                                  jQuery.ajax({
                                                              url: "actualizardataus.php",
-                                                             data: $("#formedus'.$reg['id_propietario'].'").serialize(),
+                                                             data: $("#formedus'.$reg['doc_prop'].'").serialize(),
                                                              type: "POST",
                                                              success:function(data){
-                                                             $("#subidaed'.$reg['id_propietario'].'").html(data);
+                                                             $("#subidaed'.$reg['doc_prop'].'").html(data);
                                                              },
                                                              error:function(){}
                                                  });
                                                  }) 
-                                                 document.getElementById("fusel'.$reg['id_propietario'].'").addEventListener("submit", e=>{
+                                                 document.getElementById("fusel'.$reg['doc_prop'].'").addEventListener("submit", e=>{
                                                       e.preventDefault()
-                                                      document.getElementById("osccc'.$reg['id_propietario'].'").style.display= "flex"
-                                                      document.getElementById("avsdel'.$reg['id_propietario'].'").style.display= "block"
-                                                      $("#canceldel'.$reg['id_propietario'].'").click(function(){
-                                                        document.getElementById("osccc'.$reg['id_propietario'].'").style.display="none"
-                                                        document.getElementById("avsdel'.$reg['id_propietario'].'").style.display="none"
+                                                      document.getElementById("osccc'.$reg['doc_prop'].'").style.display= "flex"
+                                                      document.getElementById("avsdel'.$reg['doc_prop'].'").style.display= "block"
+                                                      $("#canceldel'.$reg['doc_prop'].'").click(function(){
+                                                        document.getElementById("osccc'.$reg['doc_prop'].'").style.display="none"
+                                                        document.getElementById("avsdel'.$reg['doc_prop'].'").style.display="none"
                                                         location.reload();
                                                       })
-                                                      document.getElementById("fusdel'.$reg['id_propietario'].'").addEventListener("submit", e=>{
+                                                      document.getElementById("fusdel'.$reg['doc_prop'].'").addEventListener("submit", e=>{
                                                         e.preventDefault()
                                                         jQuery.ajax({
                                                           url: "deldata.php",
-                                                          data: $("#fusdel'.$reg['id_propietario'].'").serialize(),
+                                                          data: $("#fusdel'.$reg['doc_prop'].'").serialize(),
                                                           type: "POST",
                                                           success:function(data){
                                                             alert("Propietario '.$reg['nombres'].' '.$reg['apellidos'].' Eliminado")
@@ -262,7 +262,7 @@
       $(document).ready(function(){
         $("#btnNuevo").click(function(){
 
-                                                document.getElementById("newuser").innerHTML = `<div id="transp" onclick="cedus'.$reg['id_propietario'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisonew"  style="width:30%; background-color: white; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
+                                                document.getElementById("newuser").innerHTML = `<div id="transp" onclick="cedus'.$reg['doc_prop'].'()" style="display:none ;position: fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5); "></div><div id="avisonew"  style="width:30%; background-color: white; padding: 20px; color:black; display:none; position: fixed; top: 0; width:50%;left: 25%; top: 15%;">
                                                 <form method="post" id="newuserform">
                                                 <table align="center" class="tablaedit">
                                                 <tr>
@@ -286,7 +286,7 @@
                                                 <td><input type="email" name="correo"></td>
                                                 </tr>
                                                 <td align="center"><input type="submit" value="confirmar" style="width: 110%; background-color: #42b7f6;"></form></td>
-                                                <td align="center"><form><input type="submit" value="cancelar" style="color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_propietario'].'()"></form></td>
+                                                <td align="center"><form><input type="submit" value="cancelar" style="color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['doc_prop'].'()"></form></td>
                                                 </tr>
                                                 </table>
                                                 <p id="infonn" style="text-align:center"></p>

@@ -8,7 +8,7 @@
             apellidos='$_POST[apellidos]',
             telefono='$_POST[telefono]',
             correo='$_POST[correo]'
-            WHERE id_propietario = $_POST[ppp]");
+            WHERE doc_prop = $_POST[ppp]");
             echo 'Se ha editado correctamente';
         }
 ?>

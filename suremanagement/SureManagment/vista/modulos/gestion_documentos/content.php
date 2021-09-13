@@ -8,7 +8,7 @@
         echo'Error!, Archivo existente';
     }else{
         move_uploaded_file($guardado,'documentos/'.$npro.'/'.$nombre);
-        $cons1 = mysqli_query($conn,"INSERT INTO documentos(nombre,fecha,id_propietario) VALUES ('$nombre','$fecha','$npro');");
+        $cons1 = mysqli_query($conn,"INSERT INTO documentos(nombre,fecha,doc_prop) VALUES ('$nombre','$fecha','$npro');");
         echo 'Archivo insertado con exito';
     }
 ?>
