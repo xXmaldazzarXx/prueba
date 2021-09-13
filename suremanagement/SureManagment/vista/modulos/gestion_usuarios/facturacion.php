@@ -42,6 +42,7 @@
                                     <th>Usuario</th>
                                     <th>Contraseña</th>
                                     <th>Email</th>
+                                    <th>Rol</th>
                                     <th colspan="2">Acciones</th>
                                 </tr>
                             </thead>
@@ -60,6 +61,7 @@
                                             <th>'.$reg['usuario'].'</th>
                                             <th>'.$reg['contraseña'].'</th>
                                             <th>'.$reg['email'].'</th>
+                                            <th>'.$reg['rol'].'</th>
                                             <th><div class="text-center"><div class="btn-group"><form id="fused'.$reg['id_usuario'].'"><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" value="Editar" class="btn btn-primary btnEditar" onclick="editus'.$reg['id_usuario'].'()"></form><form id="fusel'.$reg['id_usuario'].'"><input type="hidden" value="'.$reg['id_usuario'].'"><input type="submit" value="Borrar"class="btn btn-danger btnBorrar"></div></form></div></th>
                                             </tr>';
                                             echo '<script>
@@ -100,6 +102,7 @@
                                     <th>Usuario</th>
                                     <th>Contraseña</th>
                                     <th>Email</th>
+                                    <th>Rol</th>
                                     <th colspan="3">Acciones</th>
                                 </tr>
                             </tfoot>         
@@ -147,6 +150,9 @@
                                           <tr>
                                           <td>Email</td>
                                           <td><input type="text" value="'.$reg['email'].'" name="correo"></td>
+                                          </tr>
+                                          <td>Rol</td>
+                                          <td><input type="text" value="'.$reg['rol'].'" name="rol"></td>
                                           </tr>
                                           <tr>
                                           <td align="center"><input type="submit" value="confirmar" style="width: 80%; background-color: #42b7f6 ;"></form></td>

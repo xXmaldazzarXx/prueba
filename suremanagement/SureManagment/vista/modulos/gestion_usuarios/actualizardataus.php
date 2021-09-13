@@ -8,7 +8,8 @@
             apellidos='$_POST[apellidos]',
             usuario='$_POST[user]',
             contraseña='$_POST[pass]',
-            email='$_POST[correo]'
+            email='$_POST[correo]',
+            rol='$_POST[rol]'
             WHERE id_usuario = $_POST[ppp]");
             echo 'Se ha editado correctamente';
         }
