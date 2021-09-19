@@ -4,7 +4,7 @@
     if( mysqli_num_rows($repnom)> 0){
         echo 'usuario existente, intente nuevamente';
     }else{
-        $new1 = mysqli_query($con,"INSERT INTO usuarios(nombres,apellidos,usuario,contraseña,email,rol) VALUES ('$_POST[nombres]','$_POST[apellidos]','$_POST[user]','$_POST[pass]','$_POST[correo]',rol='$_POST[rol]);");
+        $new1 = mysqli_query($con,"INSERT INTO usuarios(nombres,apellidos,usuario,contraseña,email,rol) VALUES ('$_POST[nombres]','$_POST[apellidos]','$_POST[user]','$_POST[pass]','$_POST[correo]','empleado');");
         echo 'Se ha ingresado correctamente el usuario';
     }
 ?>

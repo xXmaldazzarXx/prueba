@@ -282,11 +282,6 @@
                                                 <tr>
                                                 <td>Email</td>
                                                 <td><input type="text" name="correo"></td>
-                                                </tr>
-                                                </tr>
-                                                <td>Rol</td>
-                                                <!-- <td><input type="text" value="'.$reg['rol'].'" name="rol"></td> -->
-                                                <td><select name="rol"><option value="admin" >admin</option><option value="empleado">empleado</option><select></td>
                                                 </tr>   
                                                 <td align="center"><input type="submit" value="confirmar" style="width: 80%; background-color: #42b7f6 ;"></form></td>
                                                 <td align="center"><form><input type="submit" value="cancelar" style=" color:white;width: 60%; background-color: #961b21;" onclick="cedus'.$reg['id_usuario'].'()"></form></td>
