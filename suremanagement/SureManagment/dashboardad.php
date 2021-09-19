@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang='es' dir='ltr'>
   <head>
-  <?php
+<?php
   SESSION_START();
   $sec = $_SESSION['usersec'];
   $con = mysqli_connect("localhost","root","","suremanagement");
   $cons = mysqli_query($con,"SELECT * FROM usuarios WHERE usuario = '$sec' ");
   if(isset($cons)){
   while($reg = mysqli_fetch_array($cons)){
-    $nsec = $reg['id_usuario'];
+    $nsec = $reg['rol'];
     $_SESSION['newnum'] = $nsec;
     $abcdefg = $_SESSION['newnum'];
   }
@@ -17,11 +17,11 @@
     header("Status: 301 Moved Permanently");
     header("Location: index.html");
   }else{
-    if($sec <> 'admin' ){
+    if($nsec <> 'admin' ){
         header("Status: 301 Moved Permanently");
         header("Location: index.html");
     }}
-        ?>
+?>
   <script src="jquery-3.5.1.min.js"></script>
   <script type="text/javascript">
 (function(document) {

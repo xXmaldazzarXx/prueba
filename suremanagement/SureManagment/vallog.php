@@ -8,25 +8,27 @@
         if($reg = mysqli_fetch_array($cons)){
             echo " Has iniciado sesion ";
             SESSION_START();
-            $_SESSION['usersec'] = $_POST['userlog'];
-            $sec = $_SESSION['usersec'];
-            if($sec <> 'admin' ){
+                $_SESSION['usersec'] = $reg['rol'];
+                $sec = $_SESSION['usersec'];
+
+            if($sec == 'admin' ){
 ?>
             <script>
                 document.write('<body id="bodo"></body>')
-                window.history.pushState( '', "dashboard", "dashboard.php");
+                window.history.pushState( '', "dashboard", "dashboardad.php");
                 $(document).ready(function(){
-                    $("#bodo").load("dashboard.php")
+                    $("#bodo").load("dashboardad.php")
                 })
             </script>
 <?php
             }else{     
 ?>
-                <script>
+
+                        <script>
                 document.write('<body id="bodo"></body>')
-                window.history.pushState( '', "dashboard", "dashboardad.php");
+                window.history.pushState( '', "dashboard", "dashboard.php");
                 $(document).ready(function(){
-                    $("#bodo").load("dashboardad.php")
+                    $("#bodo").load("dashboard.php")
                 })
             </script>
 <?php
