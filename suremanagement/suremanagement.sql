@@ -218,7 +218,7 @@ DROP id_propietario;
 
 #Cambios en la tabla usuarios
 ALTER TABLE usuarios
-ADD rol VARCHAR(10) NOT NULL;
+ADD rol VARCHAR(10);
 
 UPDATE usuarios
 SET rol="admin"
@@ -290,6 +290,9 @@ ALTER TABLE documentos
 ADD PRIMARY KEY (id_docs);
 
 ALTER TABLE documentos
+MODIFY id_docs INT(5) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE documentos
 ADD doc_prop INT(12) NOT NULL;
 
 ALTER TABLE documentos
@@ -304,20 +307,6 @@ DROP id_propietario;
 ALTER TABLE inmuebles_arriendo
 ADD doc_prop INT(12) NOT NULL;
 
-UPDATE inmuebles_arriendo
-SET doc_prop=1000506588
-WHERE id_inmueble=1;
-
 ALTER TABLE inmuebles_arriendo
 ADD CONSTRAINT fk_inmu_1 FOREIGN KEY (doc_prop) REFERENCES propietarios(doc_prop);
-
-SELECT * FROM documentos;
-SELECT * FROM usuarios;
-SELECT * FROM inmuebles_arriendo;
-SELECT * FROM propietarios;
-
-DESCRIBE documentos;
-DESCRIBE usuarios;
-DESCRIBE inmuebles_arriendo;
-DESCRIBE propietarios;
 
