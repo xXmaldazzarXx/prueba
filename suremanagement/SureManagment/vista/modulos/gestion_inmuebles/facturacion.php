@@ -64,11 +64,12 @@
                             </thead>
                                 <?php
                                     $conn = mysqli_connect("localhost","root","","suremanagement");
-                                    if ($conn -> connect_error){
+                                    if($conn -> connect_error){
                                         echo "Error en la conexion";
                                     }else{
-                                        $consulta = mysqli_query($conn, "SELECT id_inmueble,direccion,complemento,valor,fecha_pago,nombres,apellidos,inmuebles_arriendo.doc_prop FROM inmuebles_arriendo INNER JOIN propietarios on inmuebles_arriendo.doc_prop = propietarios.doc_prop");
-                                        while($reg = mysqli_fetch_array($consulta)){
+                                        $conn = mysqli_connect("localhost","root","","suremanagement");
+                                        $cons = mysqli_query($conn, "SELECT id_inmueble,direccion,complemento,valor,fecha_pago,nombres,apellidos,inmuebles_arriendo.doc_prop FROM inmuebles_arriendo INNER JOIN propietarios on inmuebles_arriendo.doc_prop = propietarios.doc_prop");
+                                        while($reg = mysqli_fetch_array($cons)){
                                             echo '<tr>
                                             <th>'.$reg['id_inmueble'].'</th>
                                             <th>'.$reg['direccion'].'</th>
