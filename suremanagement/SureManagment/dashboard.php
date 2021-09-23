@@ -83,7 +83,7 @@
         <a href='#'><i class='fas fa-table'></i><span>Clientes</span></a>
         <a href='#'><i class='fas fa-th'></i><span>Administrar productos</span></a>
         <a href='#'><i class='fas fa-info-circle'></i><span>Ventas</span></a>
-        <a href='#'><i class='fas fa-sliders-h'></i><span> Informe de ventas</span></a>
+        <a href='#'><i class='fas fa-sliders-h'></i><span>Informe de ventas</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->

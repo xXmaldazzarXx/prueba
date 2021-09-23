@@ -6,12 +6,10 @@
     $sec = $_SESSION['usersec'];
     $con = mysqli_connect("localhost","root","","suremanagement");
     $cons = mysqli_query($con,"SELECT * FROM usuarios WHERE usuario = '$sec' ");
-    if(isset($cons)){
     while($reg = mysqli_fetch_array($cons)){
         $nsec = $reg['id_usuario'];
         $_SESSION['newnum'] = $nsec;
         $abcdefg = $_SESSION['newnum'];
-    }
     }
     ?>
     <meta charset="UTF-8">

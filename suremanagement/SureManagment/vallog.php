@@ -8,10 +8,13 @@
         if($reg = mysqli_fetch_array($cons)){
             echo " Has iniciado sesion ";
             SESSION_START();
-                $_SESSION['usersec'] = $reg['rol'];
+                $_SESSION['newnum'] = $_POST['userlog'];
+                $_SESSION['usersec'] = $reg['usuario'];
                 $sec = $_SESSION['usersec'];
+                $_SESSION['rol'] = $reg['rol'];
+                $adm = $_SESSION['rol'];
 
-            if($sec == 'admin' ){
+            if($adm == 'admin' ){
 ?>
             <script>
                 document.write('<body id="bodo"></body>')
