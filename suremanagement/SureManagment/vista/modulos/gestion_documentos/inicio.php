@@ -37,6 +37,7 @@
                 <p>Elegir archivo 📂</p>
             </div>
             </label>
+            <p id="nomarch">Ningun archivo seleccionado</p>
             <!-- Label de archivo -->
             <label for="enviar">
                 <div class="btnn">
@@ -135,6 +136,37 @@
 
                 })
             
+
+                $('#arr').change(function(){
+                    jQuery.ajax({
+                    url: "content.php",
+                    data: $("#sar").serialize(),
+                    type: "POST",
+                    data:  new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success:function(data){
+                    $('#carga').html(data)
+
+
+                    jQuery.ajax({
+                    url: "doc2.php",
+                    data: $("#cpro").serialize(),
+                    type: "POST",
+                    success:function(data){
+                        $('#contenido').html(/*Entrada de Documentos a descargar*/'<div class="inicio"><h3>archivos</h3></div><hr>'+data)
+                    }
+                    })
+
+                    
+                },
+                error:function(data) 
+                {}  
+            })
+
+                    document.getElementById("nomarch").innerHTML = namee 
+                })
 
 
             sar.addEventListener('submit',function sub1(event){
